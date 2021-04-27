@@ -1,0 +1,49 @@
+--made by crown 
+--just a small gui for dino spawner lol
+--u must own the dino/skin to make it spawn
+local SpawnAsDino = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Execute = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+
+
+SpawnAsDino.Name = "SpawnAsDino"
+SpawnAsDino.Parent = game.CoreGui
+
+Frame.Parent = SpawnAsDino
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+Frame.BorderColor3 = Color3.fromRGB(50, 50, 50)
+Frame.Position = UDim2.new(0.886075974, 0, 0.734643757, 0)
+Frame.Size = UDim2.new(0, 153, 0, 56)
+
+Execute.Name = "Execute"
+Execute.Parent = Frame
+Execute.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+Execute.Position = UDim2.new(0.241830066, 0, 0.531793833, 0)
+Execute.Size = UDim2.new(0, 78, 0, 20)
+Execute.Font = Enum.Font.SourceSans
+Execute.Text = "Execute"
+Execute.TextColor3 = Color3.fromRGB(0, 0, 0)
+Execute.TextSize = 14.000
+Execute.MouseButton1Down:connect(function()
+	local b = (TextBox.Text)
+	game.Workspace.GameEvents.ChangeDinosaur:FireServer(b)
+	wait(2)
+	game.Workspace.GameEvents.StartPlayer:FireServer(b)
+	game.Workspace.GameEvents.ChangeDinosaur:FireServer(b)
+	wait(0.01)
+	game.Workspace.GameEvents.StartPlayer:FireServer(b)
+	game.Workspace.GameEvents.ChangeDinosaur:FireServer(b)
+	wait(0.01)
+	game.Workspace.GameEvents.StartPlayer:FireServer(b)
+	game.Workspace.GameEvents.ChangeDinosaur:FireServer(b)
+end)
+
+TextBox.Parent = Execute
+TextBox.BackgroundColor3 = Color3.fromRGB(51, 89, 86)
+TextBox.Position = UDim2.new(-0.358974367, 0, -1.1500001, 0)
+TextBox.Size = UDim2.new(0, 134, 0, 17)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.Text = "Hothead Megavore"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 14.000
